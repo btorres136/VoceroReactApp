@@ -1,41 +1,24 @@
 import * as React from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, Text, Dimensions, StatusBar, View } from "react-native";
-import CityInfo from "./CityInfo";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import {
+  StyleSheet,
+  Text,
+  Dimensions,
+  View,
+  Image,
+  ScrollView,
+} from "react-native";
+import getMapMarkers from "../hooks/getMapMarkers";
 const mapstyles = require("../constants/mapstyle.json");
 
 export default function MapContainer(props) {
-  const [markers, setmarkers] = React.useState([]);
-  const [ready, setready] = React.useState(false);
-  const [cityselected, setcityselected] = React.useState(null);
-
-  const showCityData = (city) => {
-    setcityselected(<CityInfo name={city} />);
-  };
-
-  React.useEffect(() => {
-    let mark = [];
-    props.cities.map((data, idx) => {
-      mark.push(
-        <Marker
-          key={idx}
-          onPress={(e) => {
-            showCityData(data.municipio);
-          }}
-          coordinate={{ latitude: data.y_lat, longitude: data.x_lat }}
-          title={"Municipio de " + data.municipio}
-        ></Marker>
-      );
-    });
-    setmarkers(mark);
-    setready(true);
-  }, []);
+  let [markers, ready, cityselected] = getMapMarkers(props);
   if (!ready) {
     return <Text>Loading cities...</Text>;
   }
   if (cityselected != null) {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
@@ -56,7 +39,7 @@ export default function MapContainer(props) {
     );
   }
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <MapView
         provider={PROVIDER_GOOGLE}
         style={styles.mapStyle}

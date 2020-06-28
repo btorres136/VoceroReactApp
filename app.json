@@ -27,9 +27,11 @@
       "favicon": "./assets/images/favicon.png"
     },
     "android": {
+      "package": "com.uagm.vocero",
+      "versionCode": 1,
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyBqiRTTmkxW4xqDsZDdUzmrI6MVMUuDWE4"
+          "apiKey": "AIzaSyClyqqX0nADqfspTcxBUppLomQWrARnC_k"
         }
       }
     }

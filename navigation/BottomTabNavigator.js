@@ -1,13 +1,25 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as React from "react";
-
 import TabBarIcon from "../components/TabBarIcon";
-import MapTabBar from "../components/MapTabBar";
-import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/MapScreen";
 import LinksScreen from "../screens/LinksScreen";
+import GovernorsScreen from "../screens/GovernorsScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+import MayorInfo from "../screens/MayorInfo";
 
 const BottomTab = createBottomTabNavigator();
-const INITIAL_ROUTE_NAME = "Home";
+const INITIAL_ROUTE_NAME = "Map";
+const MayorStack = createStackNavigator();
+
+function MayorNav({ navigation, route }) {
+  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  return (
+    <MayorStack.Navigator>
+      <MayorStack.Screen name="Map" component={MapScreen} />
+      <MayorStack.Screen name="MayorInfo" component={MayorInfo} />
+    </MayorStack.Navigator>
+  );
+}
 
 export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
@@ -22,7 +34,7 @@ export default function BottomTabNavigator({ navigation, route }) {
     >
       <BottomTab.Screen
         name="Map"
-        component={HomeScreen}
+        component={MayorNav}
         options={{
           title: "Map",
           tabBarIcon: ({ focused }) => (
@@ -31,8 +43,8 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Gobernacion"
-        component={LinksScreen}
+        name="Governors"
+        component={GovernorsScreen}
         options={{
           title: "Gobernacion",
           tabBarIcon: ({ focused }) => (
@@ -41,10 +53,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Camara"
+        name="Comisionado"
         component={LinksScreen}
         options={{
-          title: "Camara",
+          title: "Comisionado",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="md-camera" />
           ),
@@ -79,9 +91,17 @@ function getHeaderTitle(route) {
     route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
 
   switch (routeName) {
-    case "Home":
+    case "Map":
       return "Mapa";
-    case "Links":
-      return "Representantes";
+    case "Representante":
+      return "Representantes por Acumulacion";
+    case "Governors":
+      return "Gobernacion";
+    case "Senador":
+      return "Senadores por Acumulacion";
+    case "Comisionado":
+      return "Comisionado Residente";
+    case "MayorInfo":
+      return "Informacion del Alcalde";
   }
 }
