@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Vocero",
+    "userInterfaceStyle": "automatic",
     "slug": "Vocero",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +19,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "config":{
-        "googleMapsApiKey": "AIzaSyBqiRTTmkxW4xqDsZDdUzmrI6MVMUuDWE4"
-      }
+      "bundleIdentifier": "com.uagm.vocero"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
