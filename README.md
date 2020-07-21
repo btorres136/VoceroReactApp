@@ -37,4 +37,4 @@ All the changes made in the code will be automatically reflected on the device.
 If you have made some changes and the change is not reflected on the phone, it is probably because
 your phone has been disconnected from the server.
 
-Simply, shake the phone up and down and a menu will appear. Just press the Update button and you're done.
+Simply, shake the phone up and down and a menu will appear. Just press the reload button and you're done.
