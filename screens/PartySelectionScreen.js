@@ -13,7 +13,11 @@ const Icon = createIconSetFromFontello(
   "fontello.ttf"
 );
 
-export default function GovernorsScreen() {
+export default function PartySelectionScreen(props) {
+  const { navigation, route } = props;
+  const { data } = route.params;
+  console.log(data);
+  
   return (
     <View style={styles.mainView}>
       <View style={styles.card}>
@@ -23,32 +27,47 @@ export default function GovernorsScreen() {
             icon="pnp_logo"
             label="Partido Nuevo Progresista"
             color={Colors.colorPNP}
-            //onPress={}
+            onPress={ () => navigation.navigate('CandidateInfo', {
+              party: 'PNP',
+              type: data
+            }) }
           />
           <OptionButton
             icon="pip_logo"
-            label="Partido Independiente Puertorrique~o"
+            label="Partido Independiente Puertorrique&ntilde;o"
             color={Colors.colorPIP}
-            //onPress={}
+            onPress={ () => navigation.navigate('CandidateInfo', {
+              party: 'PIP',
+              type: data
+            }) }
           />
           <OptionButton
             icon="ppd_logo"
             label="Partido Popular Democratico"
             color={Colors.colorPPD}
-            //onPress={}
+            onPress={ () => navigation.navigate('CandidateInfo', {
+              party: 'PPD',
+              type: data
+            }) }
           />
           <OptionButton
             icon="victoria_logo"
             label="Partido Victoria Ciudadana"
             color={Colors.colorVictoria}
-            //onPress={}
+            onPress={ () => navigation.navigate('CandidateInfo', {
+              party: 'Victoria',
+              type: data
+            }) }
           />
           <OptionButton
             icon="proyecto_dignidad_logo"
             label="Proyecto Dignidad"
             color={Colors.colorDignidad}
             isLastOption
-            //onPress={}
+            onPress={ () => navigation.navigate('CandidateInfo', {
+              party: 'Dignidad',
+              type: data
+            }) }
           />
         </ScrollView>
       </View>
@@ -60,7 +79,7 @@ function OptionButton({ icon, label, onPress, isLastOption, color }) {
   return (
     <RectButton
       style={[styles.option, isLastOption && styles.lastOption]}
-      //onPress={onPress}
+      onPress={onPress}
     >
       <View style={{ flexDirection: "column" }}>
         <View style={styles.optionIconContainer}>
@@ -111,6 +130,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
   },
   optionIconContainer: {
+    alignSelf: "center",
     marginRight: 12,
   },
   option: {
@@ -128,4 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 1,
   },
+  optionTextContainer: {
+    alignSelf: "center"
+  }
 });

@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 import "firebase/database";
 
-
+//Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBexO8TwcefEwOwUHnf70gNT8OmQV_3sWk",
     authDomain: "vocero-8fb92.firebaseapp.com",
@@ -13,4 +13,6 @@ const firebaseConfig = {
     measurementId: "G-KHBYQZZ8H5",
 };
 firebase.initializeApp(firebaseConfig);
+
+//Add exports here
 export const db = firebase.database();

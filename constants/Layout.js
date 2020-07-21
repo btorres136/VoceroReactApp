@@ -1,6 +1,8 @@
 import { Dimensions } from "react-native";
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
 
+//To avoid recomputing, add the desire sizes in this file
+
 //UI high Specs
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;

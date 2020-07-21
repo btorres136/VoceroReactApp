@@ -3,10 +3,11 @@ import * as React from "react";
 import TabBarIcon from "../components/TabBarIcon";
 import MapScreen from "../screens/MapScreen";
 import LinksScreen from "../screens/LinksScreen";
-import GovernorsScreen from "../screens/GovernorsScreen";
+import PartySelectionScreen from "../screens/PartySelectionScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import MayorInfo from "../screens/MayorInfo";
 import { tabBarContext } from "../hooks/tabBarContext";
+import CandidateInfo from "../screens/CandidateInfo";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Map";
@@ -33,9 +34,15 @@ function GovNav() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Map"
-        component={GovernorsScreen}
+        name="PartySelectionScreen"
+        component={PartySelectionScreen}
+        initialParams={{data: "Gobernacion"}}
         options={{ headerTitle: "Gobernador" }}
+      />
+      <Stack.Screen
+        name="CandidateInfo"
+        component={CandidateInfo}
+        options={{ headerTitle: "Candidato" }}
       />
     </Stack.Navigator>
   );
@@ -46,8 +53,14 @@ function ComiNav() {
     <Stack.Navigator>
       <Stack.Screen
         name="Map"
-        component={LinksScreen}
+        component={PartySelectionScreen}
+        initialParams={{data: "Comisionado"}}
         options={{ headerTitle: "Comisionado" }}
+      />
+      <Stack.Screen
+        name="CandidateInfo"
+        component={CandidateInfo}
+        options={{ headerTitle: "Candidato" }}
       />
     </Stack.Navigator>
   );
@@ -61,7 +74,9 @@ export default function BottomTabNavigator() {
     <tabBarContext.Provider value={value}>
       <BottomTab.Navigator
         initialRouteName={INITIAL_ROUTE_NAME}
-        tabBarOptions={{ style: { backgroundColor: "#fff",  position:"absolute", bottom:0 } }}
+        tabBarOptions={{
+          style: { backgroundColor: "#fff", position: "absolute", bottom: 0 },
+        }}
       >
         <BottomTab.Screen
           name="Map"
