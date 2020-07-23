@@ -6,11 +6,9 @@ export default function getCandidateInfo(props){
     const { party, type } = props.route.params;
     const [candidate, setcandidate] = React.useState([]);
     const [retrived, setretrived] = React.useState(false);
-    
     React.useEffect(() => {
         db.ref("/"+type+"/"+party).on(("value"), (snapshot) => {
             const data = snapshot.val();
-            console.log(type);
             const newval = [];
             for (let value in data) { 
                 newval.push({

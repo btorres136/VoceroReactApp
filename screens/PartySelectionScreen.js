@@ -7,6 +7,10 @@ import fontelloConfig from "../assets/fonts/config.json";
 import { createIconSetFromFontello } from "@expo/vector-icons";
 import { ScrollView, RectButton } from "react-native-gesture-handler";
 
+import { AdMobBanner } from "expo-ads-admob";
+
+// Set global test device ID
+
 const Icon = createIconSetFromFontello(
   fontelloConfig,
   "fontello",
@@ -16,8 +20,7 @@ const Icon = createIconSetFromFontello(
 export default function PartySelectionScreen(props) {
   const { navigation, route } = props;
   const { data } = route.params;
-  console.log(data);
-  
+
   return (
     <View style={styles.mainView}>
       <View style={styles.card}>
@@ -27,50 +30,68 @@ export default function PartySelectionScreen(props) {
             icon="pnp_logo"
             label="Partido Nuevo Progresista"
             color={Colors.colorPNP}
-            onPress={ () => navigation.navigate('CandidateInfo', {
-              party: 'PNP',
-              type: data
-            }) }
+            onPress={() =>
+              navigation.navigate("CandidateInfo", {
+                party: "PNP",
+                type: data,
+              })
+            }
           />
           <OptionButton
             icon="pip_logo"
             label="Partido Independiente Puertorrique&ntilde;o"
             color={Colors.colorPIP}
-            onPress={ () => navigation.navigate('CandidateInfo', {
-              party: 'PIP',
-              type: data
-            }) }
+            onPress={() =>
+              navigation.navigate("CandidateInfo", {
+                party: "PIP",
+                type: data,
+              })
+            }
           />
           <OptionButton
             icon="ppd_logo"
             label="Partido Popular Democratico"
             color={Colors.colorPPD}
-            onPress={ () => navigation.navigate('CandidateInfo', {
-              party: 'PPD',
-              type: data
-            }) }
+            onPress={() =>
+              navigation.navigate("CandidateInfo", {
+                party: "PPD",
+                type: data,
+              })
+            }
           />
           <OptionButton
             icon="victoria_logo"
             label="Partido Victoria Ciudadana"
             color={Colors.colorVictoria}
-            onPress={ () => navigation.navigate('CandidateInfo', {
-              party: 'Victoria',
-              type: data
-            }) }
+            onPress={() =>
+              navigation.navigate("CandidateInfo", {
+                party: "Victoria",
+                type: data,
+              })
+            }
           />
           <OptionButton
             icon="proyecto_dignidad_logo"
             label="Proyecto Dignidad"
             color={Colors.colorDignidad}
             isLastOption
-            onPress={ () => navigation.navigate('CandidateInfo', {
-              party: 'Dignidad',
-              type: data
-            }) }
+            onPress={() =>
+              navigation.navigate("CandidateInfo", {
+                party: "Dignidad",
+                type: data,
+              })
+            }
           />
         </ScrollView>
       </View>
+      <AdMobBanner
+        bannerSize="smartBannerPortrait"
+        adUnitID="ca-app-pub-3940256099942544/6300978111"
+        //servePersonalizedAds={false} // true or false
+        onDidFailToReceiveAdWithError={(err) => {
+          console.log(err);
+        }}
+      />
     </View>
   );
 }
@@ -149,6 +170,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   optionTextContainer: {
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });

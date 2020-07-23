@@ -30,6 +30,42 @@ function MayorNav() {
   );
 }
 
+function SenateNav(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="PartySelectionScreen"
+        component={PartySelectionScreen}
+        initialParams={{data: "Senado"}}
+        options={{ headerTitle: "Senador" }}
+      />
+      <Stack.Screen
+        name="CandidateInfo"
+        component={CandidateInfo}
+        options={{ headerTitle: "Candidato" }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+function RepreNav(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="PartySelectionScreen"
+        component={PartySelectionScreen}
+        initialParams={{data: "Representante"}}
+        options={{ headerTitle: "Representante" }}
+      />
+      <Stack.Screen
+        name="CandidateInfo"
+        component={CandidateInfo}
+        options={{ headerTitle: "Candidato" }}
+      />
+    </Stack.Navigator>
+  )
+}
+
 function GovNav() {
   return (
     <Stack.Navigator>
@@ -111,10 +147,9 @@ export default function BottomTabNavigator() {
         />
         <BottomTab.Screen
           name="Senador"
-          component={ComiNav}
+          component={SenateNav}
           options={{
             title: "Senador",
-            displayName: "hello",
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="user-tie" />
             ),
@@ -122,9 +157,8 @@ export default function BottomTabNavigator() {
         />
         <BottomTab.Screen
           name="Representante"
-          component={ComiNav}
+          component={RepreNav}
           options={{
-            title: "Representante",
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="user-friends" />
             ),
