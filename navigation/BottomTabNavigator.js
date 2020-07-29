@@ -188,3 +188,4 @@ function getHeaderTitle(route) {
       return "Informacion del Alcalde";
   }
 }
+
