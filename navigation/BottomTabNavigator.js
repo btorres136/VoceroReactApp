@@ -9,6 +9,14 @@ import MayorInfo from "../screens/MayorInfo";
 import { tabBarContext } from "../hooks/tabBarContext";
 import CandidateInfo from "../screens/CandidateInfo";
 
+import { createIconSetFromFontello } from "@expo/vector-icons";
+import fontelloconf from "../assets/fonts/pr.json";
+
+const Icon = createIconSetFromFontello(
+  fontelloconf,
+  "prfontello",
+  "prfontello.ttf"
+);
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Map";
 const Stack = createStackNavigator();
@@ -30,13 +38,13 @@ function MayorNav() {
   );
 }
 
-function SenateNav(){
+function SenateNav() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="PartySelectionScreen"
         component={PartySelectionScreen}
-        initialParams={{data: "Senado"}}
+        initialParams={{ data: "Senado" }}
         options={{ headerTitle: "Senador" }}
       />
       <Stack.Screen
@@ -45,16 +53,16 @@ function SenateNav(){
         options={{ headerTitle: "Candidato" }}
       />
     </Stack.Navigator>
-  )
+  );
 }
 
-function RepreNav(){
+function RepreNav() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="PartySelectionScreen"
         component={PartySelectionScreen}
-        initialParams={{data: "Representante"}}
+        initialParams={{ data: "Representante" }}
         options={{ headerTitle: "Representante" }}
       />
       <Stack.Screen
@@ -63,7 +71,7 @@ function RepreNav(){
         options={{ headerTitle: "Candidato" }}
       />
     </Stack.Navigator>
-  )
+  );
 }
 
 function GovNav() {
@@ -72,7 +80,7 @@ function GovNav() {
       <Stack.Screen
         name="PartySelectionScreen"
         component={PartySelectionScreen}
-        initialParams={{data: "Gobernacion"}}
+        initialParams={{ data: "Gobernacion" }}
         options={{ headerTitle: "Gobernador" }}
       />
       <Stack.Screen
@@ -90,7 +98,7 @@ function ComiNav() {
       <Stack.Screen
         name="Map"
         component={PartySelectionScreen}
-        initialParams={{data: "Comisionado"}}
+        initialParams={{ data: "Comisionado" }}
         options={{ headerTitle: "Comisionado" }}
       />
       <Stack.Screen
@@ -121,7 +129,7 @@ export default function BottomTabNavigator() {
             tabBarVisible: showTabBar,
             title: "Mapa",
             tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="map" />
+              <Icon name="pr" size={22} focused={focused} />
             ),
           }}
         />
@@ -188,4 +196,3 @@ function getHeaderTitle(route) {
       return "Informacion del Alcalde";
   }
 }
-

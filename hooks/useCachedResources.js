@@ -6,7 +6,6 @@ import {
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
-import fontelloConfig from "../assets/fonts/config.json";
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -22,6 +21,7 @@ export default function useCachedResources() {
           ...FontAwesome5.font,
           ...Ionicons.font,
           fontello: require("../assets/fonts/fontello.ttf"),
+          prfontello: require("../assets/fonts/prfontello.ttf"), //PR solo
           "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
           roboto: require("../assets/fonts/Roboto-Regular.ttf"),
           "open-sans": require("../assets/fonts/OpenSans-Regular.ttf"),
