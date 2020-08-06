@@ -8,13 +8,20 @@ export default function getCandidateInfo(props){
     const [retrived, setretrived] = React.useState(false);
     React.useEffect(() => {
         db.ref("/"+type+"/"+party).on(("value"), (snapshot) => {
-            const data = snapshot.val();
+            //const data = snapshot.val();
             const newval = [];
+            snapshot.forEach(function(data){
+                let result = data.val();
+                result["key"] = data.key;
+                newval.push(result);
+            });
+
+            /*
             for (let value in data) { 
                 newval.push({
-                    Nombre: data[value],
+                    Nombre: data[value]
                 });
-            }
+            }*/
             setcandidate(newval);
             setretrived(true);
         });
