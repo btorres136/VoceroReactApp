@@ -11,6 +11,7 @@ import CandidateInfo from "../screens/CandidateInfo";
 
 import { createIconSetFromFontello } from "@expo/vector-icons";
 import fontelloconf from "../assets/fonts/pr.json";
+import Colors from "../constants/Colors";
 
 const Icon = createIconSetFromFontello(
   fontelloconf,
@@ -129,7 +130,12 @@ export default function BottomTabNavigator() {
             tabBarVisible: showTabBar,
             title: "Mapa",
             tabBarIcon: ({ focused }) => (
-              <Icon name="pr" size={22} focused={focused} />
+              //<Icon name="pr" size={22} focused={focused} />
+              <Icon
+                name="pr"
+                size={22}
+                color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+              />
             ),
           }}
         />
