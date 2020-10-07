@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Platform } from "react-native";
 import MapContainer from "../components/MapContainer";
 import getCitiesData from "../hooks/getCitiesData";
 import MapContainerIOS from "../components/MapContainerIOS";
+import {Analytics, PageHit} from 'expo-analytics';
 
 export default function MapScreen({ navigation }) {
   /**

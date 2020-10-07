@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "934076928663",
+    "firebase_url": "https://vocero-8fb92.firebaseio.com",
+    "project_id": "vocero-8fb92",
+    "storage_bucket": "vocero-8fb92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934076928663:android:dbcc2a1148774219040fd2",
+        "android_client_info": {
+          "package_name": "com.research.vocero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934076928663-aql6nd4feerq6lkocdp3rqufbqudgev3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.research.vocero",
+            "certificate_hash": "ddccaf3203f89dbb5e3e15e2dd7a3135a538e1b4"
+          }
+        },
+        {
+          "client_id": "934076928663-9fvc48sh216onmjvsvdgt1kqia80du79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRp2tE1Rf1hj37USaJU58uzGvHN0WjlHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934076928663-9fvc48sh216onmjvsvdgt1kqia80du79.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "934076928663-h5hke5mvn9fmep68f5nadhom7l0nf6ej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uagm.Vocero"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

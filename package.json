@@ -19,6 +19,7 @@
     "@react-navigation/stack": "^5.7.0",
     "expo": "~37.0.9",
     "expo-ads-admob": "~8.1.0",
+    "expo-analytics": "^1.0.16",
     "expo-asset": "~8.1.0",
     "expo-constants": "~9.0.0",
     "expo-font": "~8.1.0",
@@ -30,6 +31,7 @@
     "firebase": "7.9.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
+    "react-ga": "^3.1.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-appearance": "~0.3.3",
     "react-native-gesture-handler": "~1.6.0",
@@ -44,7 +46,9 @@
     "react-native-shimmer-placeholder": "git+https://github.com/tomzaku/react-native-shimmer-placeholder.git#expo",
     "react-native-vector-icons": "^7.0.0",
     "react-native-web": "~0.11.7",
-    "reanimated-bottom-sheet": "^1.0.0-alpha.20"
+    "reanimated-bottom-sheet": "^1.0.0-alpha.20",
+    "expo-firebase-core": "~1.0.0",
+    "expo-firebase-analytics": "~2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

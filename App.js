@@ -4,6 +4,9 @@ import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 
+import ReactGA from 'react-ga';
+import {Analytics, PageHit} from 'expo-analytics';
+
 import useCachedResources from "./hooks/useCachedResources";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import LinkingConfiguration from "./navigation/LinkingConfiguration";
@@ -17,7 +20,8 @@ const Stack = createStackNavigator();
 
 export default function App(props) {
   const isLoadingComplete = useCachedResources();
-
+  
+  
   if (!isLoadingComplete) {
     return null;
   } else {

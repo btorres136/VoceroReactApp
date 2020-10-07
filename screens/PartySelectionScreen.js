@@ -9,6 +9,10 @@ import { ScrollView, RectButton } from "react-native-gesture-handler";
 
 import { AdMobBanner } from "expo-ads-admob";
 
+//import {Analytics, Event, PageHit} from 'expo-analytics';
+
+import * as Analytics from 'expo-firebase-analytics';
+
 // Set global test device ID
 
 const Icon = createIconSetFromFontello(
@@ -30,12 +34,18 @@ export default function PartySelectionScreen(props) {
             icon="pnp_logo"
             label="Partido Nuevo Progresista"
             color={Colors.colorPNP}
-            onPress={() =>
+            onPress={() =>{
+              Analytics.logEvent("ButtonTapped", {
+                name: "PNP",
+                screen: "PartySelectionScreen",
+                purpose: "Select the pnp party to se info"
+              });
               navigation.navigate("CandidateInfo", {
                 party: "PNP",
                 type: data,
-              })
-            }
+              });
+
+            }}
           />
           <OptionButton
             icon="pip_logo"
@@ -53,6 +63,7 @@ export default function PartySelectionScreen(props) {
             label="Partido Popular Democratico"
             color={Colors.colorPPD}
             onPress={() =>
+              
               navigation.navigate("CandidateInfo", {
                 party: "PPD",
                 type: data,

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button } from "react-native";
+import { Button, TextComponent } from "react-native";
 import { Dimensions } from "react-native";
 import { StyleSheet, Text, View, Image } from "react-native";
 import Layout from "../constants/Layout";
@@ -21,7 +21,7 @@ export default function MayorInfo({ route }) {
       <Text>{mayor}</Text>
       <Text>Info: {info}</Text>
       <Image
-        source={{ uri: PartidoURL }}/
+        source={{ uri: PartidoURL }}
         style={{
           width: 100,
           height: 100,
