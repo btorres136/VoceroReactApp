@@ -4,6 +4,8 @@ import { Text, View, Image, TouchableOpacity, StyleSheet, Button } from "react-n
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import { widthPercentageToDP, heightPercentageToDP } from "react-native-responsive-screen";
 import Colors from '../constants/Colors';
+import * as Analytics from 'expo-firebase-analytics';
+
 export default function getMayorsInfo(props, styles) {
   
   const picSize = heightPercentageToDP("15%");
@@ -40,15 +42,24 @@ export default function getMayorsInfo(props, styles) {
               <TouchableOpacity
                 key={value}
                 activeOpacity={0.8}
-                onPress={() =>
+                onPress={() =>{
+                  Analytics.logEvent("Mayor_ButtonTaped",{
+                    name : "Mayor: " + data[value].Nombre,
+                    location: "City: " + props.name,
+                    party : "Party: " + value,
+                    screen: "Candidate info",
+                    purpose: "See the candidate info"
+                  });
                   props.navigation.navigate("MayorInfo", {
                     mayor: data[value].Nombre,
                     info: data[value].info,
                     PartidoURL: data[value].PartidoURL,
                     PicURL: data[value].PicURL,
-                    Partido: value
-                  })
-                }
+                    Partido: value,
+                    FacebookURL: data[value].FacebookURL
+                    
+                  });
+                }}
                 style={styles.cityInfo}
               >
                 <Image

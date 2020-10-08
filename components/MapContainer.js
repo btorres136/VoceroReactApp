@@ -6,6 +6,7 @@ import getMapMarkers from "../hooks/getMapMarkers";
 import { useTransition } from "react-native-redash";
 import { tabBarContext } from "../hooks/tabBarContext";
 import Layout from "../constants/Layout";
+import * as Analytics from 'expo-firebase-analytics';
 
 export default function MapContainer(props) {
   //Custom map style (GoogleMaps)

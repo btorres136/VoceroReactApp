@@ -3,10 +3,12 @@ import { Button, TextComponent } from "react-native";
 import { Dimensions } from "react-native";
 import { StyleSheet, Text, View, Image } from "react-native";
 import Layout from "../constants/Layout";
+import * as WebBrowser from 'expo-web-browser';
+import { ScrollView } from "react-native-gesture-handler";
 export default function MayorInfo({ route }) {
-  const { mayor, info, PartidoURL, PicURL, Partido } = route.params;
+  const { mayor, info, PartidoURL, PicURL, Partido, FacebookURL } = route.params;
   return (
-    <View style={style.mainView}>
+    <ScrollView style={style.mainView}>
       <Image
         source={{ uri: PicURL }}
         style={{
@@ -20,6 +22,7 @@ export default function MayorInfo({ route }) {
       <Text>{Partido}</Text>
       <Text>{mayor}</Text>
       <Text>Info: {info}</Text>
+      <Text>FacebookURL: {FacebookURL}</Text>
       <Image
         source={{ uri: PartidoURL }}
         style={{
@@ -33,9 +36,14 @@ export default function MayorInfo({ route }) {
       <Button title="Propuesta"></Button>
       <Button title="Redes Sociales"></Button>
       <Button title="Últimas Noticias"></Button>
-    </View>
+      <Button title="See Facebook" 
+      onPress={() =>{
+        WebBrowser.openBrowserAsync(FacebookURL);
+       }}></Button>
+    </ScrollView>
   );
 }
+
 const style = StyleSheet.create({
   mainView: {
     flex: 1,

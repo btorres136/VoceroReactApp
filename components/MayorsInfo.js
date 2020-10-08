@@ -50,6 +50,7 @@ export default function MayorsInfo(props) {
   }
   return (
     <>
+      
       <Text style={styles.cityInfoTitle}>Alcaldia de {props.name}</Text>
       <ScrollView horizontal={true} style={{flex:1, margin:8}} showsHorizontalScrollIndicator={false}>{cityinfo}</ScrollView>
     </>

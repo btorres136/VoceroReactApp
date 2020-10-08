@@ -35,10 +35,10 @@ export default function PartySelectionScreen(props) {
             label="Partido Nuevo Progresista"
             color={Colors.colorPNP}
             onPress={() =>{
-              Analytics.logEvent("ButtonTapped", {
-                name: "PNP",
+              Analytics.logEvent("Party_ButtonTapped", {
+                name: data + ": PNP",
                 screen: "PartySelectionScreen",
-                purpose: "Select the pnp party to se info"
+                purpose: "Select the PNP party to se info"
               });
               navigation.navigate("CandidateInfo", {
                 party: "PNP",
@@ -51,47 +51,66 @@ export default function PartySelectionScreen(props) {
             icon="pip_logo"
             label="Partido Independiente Puertorrique&ntilde;o"
             color={Colors.colorPIP}
-            onPress={() =>
+            onPress={() =>{
+              Analytics.logEvent("Party_ButtonTapped", {
+                name: data + ": PIP",
+                screen: "PartySelectionScreen",
+                purpose: "Select the PIP party to se info"
+              });
               navigation.navigate("CandidateInfo", {
                 party: "PIP",
                 type: data,
-              })
-            }
+              });
+            }}
           />
           <OptionButton
             icon="ppd_logo"
             label="Partido Popular Democratico"
             color={Colors.colorPPD}
-            onPress={() =>
-              
+            onPress={() =>{
+              Analytics.logEvent("Party_ButtonTapped", {
+                name: data + ": PPD",
+                screen: "PartySelectionScreen",
+                purpose: "Select the PPD party to se info"
+              });
               navigation.navigate("CandidateInfo", {
                 party: "PPD",
                 type: data,
-              })
-            }
+              });
+            }}
           />
           <OptionButton
             icon="victoria_logo"
             label="Partido Victoria Ciudadana"
             color={Colors.colorVictoria}
-            onPress={() =>
+            onPress={() =>{
+              Analytics.logEvent("Party_ButtonTapped", {
+                name: data + ": Victoria",
+                screen: "PartySelectionScreen",
+                purpose: "Select the Victoria party to se info"
+              });
               navigation.navigate("CandidateInfo", {
                 party: "Victoria",
                 type: data,
-              })
-            }
+              });
+            }}
           />
           <OptionButton
             icon="proyecto_dignidad_logo"
             label="Proyecto Dignidad"
             color={Colors.colorDignidad}
             isLastOption
-            onPress={() =>
+            onPress={() =>{
+              Analytics.logEvent("Party_ButtonTapped", {
+                name: data + ": Dignidad",
+                screen: "PartySelectionScreen",
+                purpose: "Select the Dignidad party to se info"
+              });
               navigation.navigate("CandidateInfo", {
                 party: "Dignidad",
                 type: data,
-              })
-            }
+              });
+            }}
           />
         </ScrollView>
       </View>

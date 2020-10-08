@@ -4,6 +4,7 @@ import getCandidateInfo from "../hooks/getCandidateInfo";
 import { AdMobBanner } from "expo-ads-admob";
 import Layout from "../constants/Layout";
 import { widthPercentageToDP, heightPercentageToDP } from "react-native-responsive-screen";
+import * as Analytics from 'expo-firebase-analytics';
 
 export default function CandidateInfo(props) {
   const { navigation, route } = props;
@@ -19,15 +20,22 @@ export default function CandidateInfo(props) {
           <View>
             <TouchableOpacity
              activeOpacity={0.8}
-             onPress={() =>
-               props.navigation.navigate("MayorInfo", {
-                 mayor: elm.key,
-                 info: elm.info,
-                 PartidoURL: elm.PartidoURL,
-                 PicURL: elm.PicURL,
-                 Partido: party
-               })
-             }
+             onPress={() =>{
+              Analytics.logEvent("Candidate_ButtonTaped", {
+                name : "Candidate: " + elm.key,
+                party : "Party: " + party,
+                screen: "Candidate info",
+                purpose: "See the candidate info"
+              });
+              props.navigation.navigate("MayorInfo", {
+                mayor: elm.key,
+                info: elm.info,
+                PartidoURL: elm.PartidoURL,
+                PicURL: elm.PicURL,
+                Partido: party,
+                FacebookURL: elm.FacebookURL
+              });
+             }}
              >
               <Image
                   source={{ uri: elm.PicURL }}
